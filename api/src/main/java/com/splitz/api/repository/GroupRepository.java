@@ -19,7 +19,7 @@ public class GroupRepository extends RepositoryBase<Group> {
     // Get group data from groups
     public Group find(Integer id) {
         try {
-            String sql = "SELECT * FROM groups WHERE id = :id";
+            String sql = "SELECT * FROM `groups` WHERE id = :id";
             SqlParameterSource params = this.bindParams("id", id);
             return jdbcTemplate.queryForObject(sql, params, new BeanPropertyRowMapper<>(Group.class));
         } catch (Exception e) {
